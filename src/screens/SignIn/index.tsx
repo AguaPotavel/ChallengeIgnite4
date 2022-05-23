@@ -61,19 +61,23 @@ export function SignIn() {
             o mundo da Twitch
           </Description>
 
-          {/* <SignInButton onPress={}>
+          <SignInButton onPress={()=> signIn()}>
             <SignInButtonIcon>
-              Verify if isLoggingIn is true
+              {/* Verify if isLoggingIn is true
               If it is, show an ActivityIndicator
-              Otherwise, show Fontisto's twitch icon
+              Otherwise, show Fontisto's twitch icon */}
+              {isLoggingIn ? <ActivityIndicator size="small" color={'white'} /> : <Fontisto name="twitch" size={24} color={'white'} />}
             </SignInButtonIcon>
-
             <SignInButtonText>
+                Entrar com Twitch
+            </SignInButtonText>
+
+            {/* <SignInButtonText>
               Verify if isLoggingIn is true
               If it is, show "Entrando..."
               Otherwise, show "Entrar com Twitch"
-            </SignInButtonText>
-          </SignInButton> */}
+            </SignInButtonText> */}
+          </SignInButton>
         </LoginInfo>
       </Content>
 

@@ -62,6 +62,7 @@ export function Home() {
       setIsLoadingTopGames(false);
     } catch (error) {
       Alert.alert('Erro Top Games', 'Ocorreu um erro ao buscar os jogos mais assistidos agora na Twitch');
+      console.log(error);
     }
   }
 
@@ -72,6 +73,7 @@ export function Home() {
 
           return { ...item, user_avatar_url: response.data.data[0].profile_image_url }
         } catch (error) {
+          console.log(error);
           return { ...item, user_avatar_url: 'https://static-cdn.jtvnw.net/user-default-pictures-uv/cdd517fe-def4-11e9-948e-784f43822e80-profile_image-300x300.png' }
         }
       })
@@ -121,11 +123,9 @@ export function Home() {
           <UserInfoText style={{ fontFamily: theme.fonts.bold }}>{user.display_name}</UserInfoText>
         </UserInfo>
 
-        {/* <SignOutButton onPress={}>
-          Verify if isLoggingOut is true
-          If it is, show an ActivityIndicator
-          Otherwise, show Feather's power icon
-        </SignOutButton> */}
+        <SignOutButton onPress={()=> signOut()}>
+          {isLoggingOut ? <ActivityIndicator size="small" color={'white'} /> : <Feather name="log-out" size={24} color={'white'} />}
+        </SignOutButton>
       </Header>
 
       <UserFollowedStreams>
