@@ -1,22 +1,17 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import { AnimatePresence } from 'framer-motion';
 import { useTheme } from 'styled-components';
-import { View } from 'react-native';
 
-import { useAuth } from '../src/hooks/useAuth';
 
-import { SignIn } from '../src/screens/SignIn';
-import { Home } from '../src/screens/Home';
+export default function Routes() {
+    const theme = useTheme();
 
-export function Routes() {
-  const theme = useTheme();
-  const { user } = useAuth();
-
-  return (
-    <View style={{ backgroundColor: theme.colors.black, flex: 1 }}>
-      <AnimatePresence exitBeforeEnter>
-        { user.id ? <Home key="home" /> : <SignIn key="signIn" /> }
-      </AnimatePresence>
-    </View>
-  )
+    return (
+        <View style={{ backgroundColor: theme.colors.black, flex: 1 }}>
+            <AnimatePresence exitBeforeEnter>
+                <Text style={{color: 'white'}}>Routes</Text>
+            </AnimatePresence>
+        </View>
+    );
 }
