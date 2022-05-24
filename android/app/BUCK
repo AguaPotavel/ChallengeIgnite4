@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.reactnativeapptemplate",
+    package = "com.rocketseat.twitchlogin",
 )
 
 android_resource(
     name = "res",
-    package = "com.reactnativeapptemplate",
+    package = "com.rocketseat.twitchlogin",
     res = "src/main/res",
 )
 
